@@ -15,7 +15,7 @@
 </p>
 <img alt="Covid Stats Live Dashboard" src="https://coronastatistics.live/assets/images/preview.png" />
 
-### 🏠 [Homepage](https://github.com/OssamaRafique/Corona-Statistics-Live-Dashboard-Angular)
+### 🏠 [Homepage](https://github.com/OssamaRafique/Corona-Statistics-And-Tracker-Dashboard-Angular-9)
 
 ### ✨ [Demo](https://coronastatistics.live)
 
