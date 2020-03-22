@@ -9,6 +9,9 @@
   <a href="https://discord.gg/QFmHc9" target="_blank">
     <img alt="Discord Server" src="https://user-images.githubusercontent.com/7288322/34472039-a19b9ed4-efbc-11e7-8946-c1ff405ae2a6.png" />
   </a>
+  <a href="https://ko-fi.com/ossamarafique" target="_blank">
+    <img alt="Buy Me A Coffee" src="https://www.ko-fi.com/img/githubbutton_sm.svg" />
+  </a>
   <a href="https://twitter.com/OssamaRafique" target="_blank">
     <img alt="Twitter: OssamaRafique" src="https://img.shields.io/twitter/follow/OssamaRafique.svg?style=social" />
   </a>
@@ -72,6 +75,8 @@ node server.js
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C71IRSG)
 
 <a href="https://www.patreon.com/OssamaRafique">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
