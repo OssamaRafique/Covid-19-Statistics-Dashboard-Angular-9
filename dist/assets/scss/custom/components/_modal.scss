@@ -1,0 +1,63 @@
+// 
+// modal.scss
+//
+
+
+// Title text within header
+.modal-title {
+    margin-top: 0;
+}
+
+// Full modal
+.modal-full {
+    width: 92%;
+    max-width: none;
+}
+
+// Custom animation modal
+.modal-demo {
+    width: 600px !important;
+    border-radius: 4px;
+    display: none;
+    position: relative;
+    overflow: hidden;
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        color: $dark;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-demo {
+        width: 96% !important;
+    }
+}
+
+.custom-modal-title {
+    padding: 15px 25px 15px 25px;
+    line-height: 22px;
+    font-size: 18px;
+    background-color: $primary;
+    color: $white;
+    text-align: left;
+    margin: 0;
+}
+
+.custom-modal-text {
+    padding: 20px;
+    background-color: lighten($light, 4%);
+}
+
+.custombox-modal-wrapper {
+    text-align: left;
+}
+
+.custombox-modal-flash,
+.custombox-modal-rotatedown {
+    .close {
+        top: 20px;
+        z-index: 9999;
+    }
+}

@@ -1,0 +1,31 @@
+/*
+Website Name: CoronaStatistics
+Author: Ossama Rafique
+Version: 1.0.0
+Website: https://ossamarafique.com/
+Contact: contact@ossamarafique.com
+File: Main Css File
+*/
+
+
+//Fonts
+@import "custom/fonts/fonts";
+
+
+//Core files
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "variables";
+@import "./node_modules/bootstrap/scss/mixins.scss";
+
+// Structure
+@import "custom/structure/general";
+@import "custom/structure/horizontal-nav";
+@import "custom/structure/topbar";
+@import "custom/structure/footer";
+
+//Components
+@import "custom/components/widgets";
+
+// Plugins
+@import "custom/plugins/waves";

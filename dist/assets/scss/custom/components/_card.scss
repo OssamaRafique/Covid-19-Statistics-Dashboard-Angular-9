@@ -1,0 +1,126 @@
+// 
+// card.scss
+//
+
+.card {
+    margin-bottom: $grid-gutter-width;
+    box-shadow: $shadow-sm;
+
+    .card-drop {
+        font-size: 20px;
+        line-height: 0;
+        color: inherit;
+    }
+}
+
+.card-widgets {
+    float: right;
+    height: 16px;
+    > a {
+        color: inherit;
+        font-size: 18px;
+        display: inline-block;
+        line-height: 1;
+
+        &.collapsed {
+            i {
+                &:before {
+                    content: "\F415";
+                }
+            }
+        }
+    }
+}
+
+
+// Card title / Card Header
+.card-title,
+.card-header {
+    margin-top: 0;
+}
+
+
+//Card disable loading (Custom Cards)
+.card-disabled {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: $card-border-radius;
+    background: rgba($white, 0.8);
+    cursor: progress;
+
+    .card-portlets-loader {
+        background-color: $dark;
+        animation: rotatebox 1.2s infinite ease-in-out;
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: - ($grid-gutter-width / 2);
+        margin-top: - ($grid-gutter-width / 2);
+    }
+}
+
+@keyframes rotatebox {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
+
+// Custom card box
+.card-box {
+    background-color: $light;
+    padding: $card-spacer-x;
+    box-shadow: $shadow-sm;
+    margin-bottom: $grid-gutter-width;
+    @include border-radius($card-border-radius);
+
+    
+    .card-drop {
+        color: $gray-600;
+        font-size: 20px;
+        display: inline-block;
+        line-height: 1px;
+    }
+}
+
+.header-title {
+    font-size: 1rem;
+    margin: 0 0 7px 0;
+}
+
+.sub-header {
+    font-size: 0.875rem;
+    margin-bottom: $grid-gutter-width;
+    color: $gray-600;
+}
+
+// card desks
+
+@media (min-width: 576px) {
+    .card-deck {
+        margin-right: -12px;
+        margin-left: -12px;
+        .card{
+            margin-right: 12px;
+            margin-left: 12px;
+        }
+    }
+}
+
+// Draggable cards
+.card-draggable-placeholder {
+    border: 2px dashed rgba($dark, 0.1);
+    margin-bottom: 16px;
+    background-color: rgba($dark, 0.06);
+}
+
