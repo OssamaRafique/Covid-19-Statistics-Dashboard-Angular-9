@@ -14,7 +14,7 @@
 
 ### 🏠 [Homepage](https://github.com/OssamaRafique/Corona-Statistics-Live-Dashboard-Angular)
 
-### ✨ [Demo](https://coronastatistice.live)
+### ✨ [Demo](https://coronastatistics.live)
 
 ## Screenshots
 
