@@ -1,0 +1,260 @@
+<div class="container-fluid">
+  <h2 class="text-center mt-3 mb-3" *ngIf="country">
+    <img 
+    width="100px" src="assets/flags/{{countryCodes[country.country].toLowerCase()}}.svg" alt="{{country.country}}"> {{country.country}}'s Statistics</h2>
+  <div class="row">
+    <div class="col-xl-3 col-md-6 col-6">
+      <div class="card-box">
+        <h4 class="header-title m-0 text-md-left text-center">Infections</h4>
+
+        <div class="topBoxes">
+          <div class="fa-3x text-center" [class.d-none]="!isLoading">
+            <i class="fas fa-circle-notch fa-spin m-2"></i>
+          </div>
+          <div class="topBoxesDetails text-md-right text-center" [class.d-none]="isLoading">
+
+            <span class="badge badge-blue badge-pill float-md-left m-md-3 mt-2"><i class="mdi mdi-trending-up"></i>
+            </span>
+            <h2 class="font-weight-normal"> {{totalCases | number}} </h2>
+            <p class="text-muted">{{todayCases}} today</p>
+          </div>
+          <div class="progress progress-bar-alt-blue progress-sm m-0">
+            <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="77" aria-valuemin="0"
+              aria-valuemax="100" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end col -->
+
+    <div class="col-xl-3 col-md-6 col-6">
+      <div class="card-box">
+        <h4 class="header-title m-0 text-md-left text-center">Deaths</h4>
+
+        <div class="topBoxes">
+          <div class="fa-3x text-center" [class.d-none]="!isLoading">
+            <i class="fas fa-circle-notch fa-spin m-2"></i>
+          </div>
+          <div class="topBoxesDetails text-md-right text-center" [class.d-none]="isLoading">
+            <span
+              class="badge badge-danger badge-pill float-md-left m-md-3 mt-2">{{(totalDeaths / finishedCases * 100) | number:'.1-2'}}%
+              <i class="mdi mdi-trending-up"></i> </span>
+            <h2 class="font-weight-normal"> {{totalDeaths | number}} </h2>
+            <p class="text-muted">{{todayDeaths}} today</p>
+          </div>
+          <div class="progress progress-bar-alt-danger progress-sm m-0">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="77" aria-valuemin="0"
+              aria-valuemax="100" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end col -->
+
+    <div class="col-xl-3 col-md-6 col-6">
+      <div class="card-box">
+        <h4 class="header-title m-0 text-md-left text-center">Recoveries</h4>
+
+        <div class="topBoxes">
+          <div class="fa-3x text-center" [class.d-none]="!isLoading">
+            <i class="fas fa-circle-notch fa-spin m-2"></i>
+          </div>
+          <div class="topBoxesDetails text-md-right text-center" [class.d-none]="isLoading">
+            <span
+              class="badge badge-success badge-pill float-md-left m-md-3 mt-2">{{(totalRecoveries / finishedCases * 100) | number:'.1-2'}}%
+              <i class="mdi mdi-trending-up"></i> </span>
+            <h2 class="font-weight-normal"> {{totalRecoveries | number}} </h2>
+            <p class="text-muted">{{activeCases | number}} remaining</p>
+          </div>
+          <div class="progress progress-bar-alt-success progress-sm m-0">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="77" aria-valuemin="0"
+              aria-valuemax="100" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end col -->
+
+
+    <div class="col-xl-3 col-md-6 col-6">
+      <div class="card-box">
+        <h4 class="header-title m-0 text-md-left text-center">Critical</h4>
+
+        <div class="topBoxes">
+          <div class="fa-3x text-center" [class.d-none]="!isLoading">
+            <i class="fas fa-circle-notch fa-spin m-2"></i>
+          </div>
+          <div class="topBoxesDetails text-md-right text-center" [class.d-none]="isLoading">
+            <span
+              class="badge badge-warning badge-pill float-md-left m-md-3 mt-2">{{(totalCritical / activeCases * 100) | number:'.1-2'}}%
+              <i class="mdi mdi-trending-up"></i> </span>
+            <h2 class="font-weight-normal"> {{totalCritical | number}} </h2>
+            <p class="text-muted">{{casesPer1M | number}} per million</p>
+          </div>
+          <div class="progress progress-bar-alt-warning progress-sm m-0">
+            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="77" aria-valuemin="0"
+              aria-valuemax="100" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end col -->
+
+  </div>
+
+  <div class="row">
+    <div class="col-xl-4">
+      <div class="card-box">
+        <h4 class="header-title mb-3">Rate Distribution </h4>
+        <div class="fa-3x text-center" [class.d-none]="!isLoading">
+          <i class="fas fa-circle-notch fa-spin m-2"></i>
+        </div>
+        <div class="inbox-widget" [class.d-none]="isLoading">
+
+          <div id="radarChart" style="width: 100%; height: 400px"></div>
+
+        </div>
+      </div>
+    </div><!-- end col -->
+
+    <div class="col-xl-8">
+      <div class="card-box">
+        <h4 class="header-title mt-0 mb-3 mt-md-0">Infections History</h4>
+        <div class="fa-3x text-center" [class.d-none]="!isLoading">
+          <i class="fas fa-circle-notch fa-spin m-2"></i>
+        </div>
+        <div class="table-responsive" [class.d-none]="isLoading">
+          <div id="lineChart" style="width: 100%; height: 400px; overflow: hidden"></div>
+        </div>
+      </div>
+    </div><!-- end col -->
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-xl-4">
+      <div class="card-box">
+        <h4 class="header-title mb-3" *ngIf="country">
+{{country.country}}'s Cases Distribution
+</h4>
+        <div class="fa-3x text-center" [class.d-none]="!isLoading">
+          <i class="fas fa-circle-notch fa-spin m-2"></i>
+        </div>
+        <div class="inbox-widget" [class.d-none]="isLoading">
+
+          <div id="pieChart" style="width: 100%; height: 300px"></div>
+
+        </div>
+      </div>
+    </div><!-- end col -->
+
+    <div class="col-xl-5">
+      <div class="card-box">
+
+        <h4 class="header-title mt-0 mb-3">Infection Rates</h4>
+        <div class="row">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-xl-6 col-md-6">
+                <div class="card-box widget-user bg-d">
+                  <div class="text-center">
+                    <div class="fa-3x text-center" [class.d-none]="!isLoading">
+                      <i class="fas fa-circle-notch fa-spin m-2 text-blue"></i>
+                    </div>
+                    <h2 [class.d-none]="isLoading" class="font-weight-normal text-success">
+                      {{(totalRecoveries / finishedCases * 100) | number:'.1-2'}}%</h2>
+                    <h5>Recovery Rate</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-md-6">
+                <div class="card-box widget-user bg-d">
+                  <div class="text-center">
+                    <div class="fa-3x text-center" [class.d-none]="!isLoading">
+                      <i class="fas fa-circle-notch fa-spin m-2 text-danger"></i>
+                    </div>
+                    <h2 [class.d-none]="isLoading" class="font-weight-normal text-danger">
+                      {{(totalDeaths / finishedCases * 100) | number:'.1-2'}}%</h2>
+                    <h5>Death Rate</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-md-6">
+                <div class="card-box widget-user bg-d">
+                  <div class="text-center">
+                    <div class="fa-3x text-center" [class.d-none]="!isLoading">
+                      <i class="fas fa-circle-notch fa-spin m-2 text-warning"></i>
+                    </div>
+                    <h2 [class.d-none]="isLoading" class="font-weight-normal text-warning">
+                      {{(totalCritical / activeCases * 100) | number:'.1-2'}}%</h2>
+                    <h5>Critical Rate</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-md-6">
+                <div class="card-box widget-user bg-d">
+                  <div class="text-center">
+                    <div class="fa-3x text-center" [class.d-none]="!isLoading">
+                      <i class="fas fa-circle-notch fa-spin m-2 text-info"></i>
+                    </div>
+                    <h2 [class.d-none]="isLoading" class="font-weight-normal text-info">{{(100-(totalCritical / activeCases * 100)) | number:'.1-2'}}%</h2>
+                    <h5>Mild Cases</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end col -->
+    <div class="col-xl-3">
+      <div class="card-box text-center">
+
+        <h5>Share with your friends, family or coworkers.</h5>
+        <p>Keep them up to date with the coronavirus outbreak.</p>
+        <a class="btn btn-icon waves-effect btn-blue mr-1" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://coronastatistics.live"> <i class="fab fa-facebook"></i> </a>
+        <a class="btn btn-icon waves-effect btn-blue mr-1" target="_blank" href="https://twitter.com/intent/tweet?url=https://coronastatistics.live&hashtags=Covid_19,CoronavirusPandemic,coronastatistics,corona&text=Stay%20Updated%20with%20Live%20Coronavirus%20Tracker"> <i class="fab fa-twitter"></i> </a>
+        <a class="btn btn-icon waves-effect btn-blue mr-1" target="_blank" href="https://vk.com/share.php?url=https://coronastatistics.live"> <i class="fab fa-vk"></i> </a>
+        <a class="btn btn-icon waves-effect btn-blue" href="whatsapp://send?text=Coronavirus live statistics and tracker https://coronastatistics.live" data-action="share/whatsapp/share"> <i class="fab fa-whatsapp"></i> </a>
+        <a href="https://ko-fi.com/ossamarafique" class="btn btn- waves-effect btn-danger d-block mt-2 mx-auto"> <i
+            class="fas fa-coffee"></i> Buy me a coffee </a>
+      </div>
+      <div class="card-box text-center">
+
+        <h5>Outbreak Started</h5>
+        <div class="row font-weight-bold" *ngIf="timer">
+          <span class="col-3">
+            {{timer['days']}}
+          </span>
+          <span class="col-3">
+            {{timer['hours']}}
+          </span>
+          <span class="col-3">
+            {{timer['minutes']}}
+          </span>
+          <span class="col-3">
+            {{timer['seconds']}}
+          </span>
+        </div>
+
+        <div class="row">
+          <span class="col-3">Days</span>
+          <span class="col-3">Hours</span>
+          <span class="col-3">Mints</span>
+          <span class="col-3">Secs</span>
+        </div>
+      </div>
+    </div><!-- end col -->
+
+  </div>
+
+
+</div> <!-- end container -->

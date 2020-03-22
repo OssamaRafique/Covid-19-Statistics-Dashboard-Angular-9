@@ -1,0 +1,107 @@
+// 
+// custom-radio.scss
+//
+
+.radio {
+    label {
+        display: inline-block;
+        padding-left: 8px;
+        position: relative;
+        font-weight: normal;
+        &::before {
+            -o-transition: border 0.5s ease-in-out;
+            -webkit-transition: border 0.5s ease-in-out;
+            background-color: $light;
+            border-radius: 50%;
+            border: 2px solid $gray-300;
+            content: "";
+            display: inline-block;
+            height: 18px;
+            left: 0;
+            margin-left: -18px;
+            position: absolute;
+            transition: border 0.5s ease-in-out;
+            width: 18px;
+            outline: none !important;
+            top: 2px;
+        }
+        &::after {
+            -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            -ms-transform: scale(0, 0);
+            -o-transform: scale(0, 0);
+            -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            -webkit-transform: scale(0, 0);
+            -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            background-color: $gray-700;
+            border-radius: 50%;
+            content: " ";
+            display: inline-block;
+            height: 10px;
+            left: 6px;
+            margin-left: -20px;
+            position: absolute;
+            top: 6px;
+            transform: scale(0, 0);
+            transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            width: 10px;
+        }
+    }
+    input[type="radio"] {
+        cursor: pointer;
+        opacity: 0;
+        z-index: 1;
+        outline: none !important;
+        &:disabled+label {
+            opacity: 0.65;
+        }
+    }
+    input[type="radio"]:focus+label {
+        &::before {
+            outline-offset: -2px;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline: thin dotted;
+        }
+    }
+    input[type="radio"]:checked+label {
+        &::after {
+            -ms-transform: scale(1, 1);
+            -o-transform: scale(1, 1);
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+        }
+    }
+    input[type="radio"]:disabled+label {
+        &::before {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.radio.radio-inline {
+    margin-top: 0;
+}
+
+.radio.radio-single {
+    label {
+        height: 17px;
+    }
+}
+
+@each $color,
+$value in $theme-colors {
+    .radio-#{$color} {
+        input[type="radio"]+label {
+            &::after {
+                background-color: $value;
+            }
+        }
+        input[type="radio"]:checked+label {
+            &::before {
+                border-color: $value;
+            }
+            &::after {
+                background-color: $value;
+            }
+        }
+    }
+}

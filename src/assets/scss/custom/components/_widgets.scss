@@ -1,0 +1,55 @@
+
+.topBoxes {
+    .topBoxesDetails {
+      .badge {
+        padding: 5px 10px;
+      }
+    }
+}
+
+.infectedCountries {
+    .infectedCountry {
+        border-bottom: 1px solid lighten($light, 4%);
+        overflow: hidden;
+        padding: 0.75rem 0;
+        position: relative;
+        &:last-child {
+            border: none;
+        }
+        .infectedCountryFlag {
+            display: block;
+            float: left;
+            margin-right: 15px;
+            width: 40px;
+            img {
+                width: 40px;
+            }
+        }
+        .infectedCountryName {
+            color: $dark;
+            display: block;
+            margin-bottom: 3px;
+        }
+        .infectedCountryDetails {
+            color: $gray-600;
+            display: block;
+            font-size: 0.8125rem;
+            margin: 0;
+            overflow: hidden;
+        }
+        .infectedCountryCases {
+            color: $gray-600;
+            font-size: 0.6875rem;
+            position: absolute;
+            right: 5px;
+            top: 10px;
+        }
+        .infectedCountryDeaths {
+            color: $gray-600;
+            font-size: 0.6875rem;
+            position: absolute;
+            right: 5px;
+            top: 30px;
+        }
+    }
+}
