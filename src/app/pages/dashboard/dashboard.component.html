@@ -170,10 +170,10 @@
             (click)="loadMap('critical')">Critical</button>
         </div>
         <h4 class="header-title mt-0 mb-3 mt-md-0">Worldwide Infections</h4>
-        <div class="fa-3x text-center" [class.d-none]="!isLoading">
+        <div class="fa-3x text-center" [class.d-none]="!isLoadingMap">
           <i class="fas fa-circle-notch fa-spin m-2"></i>
         </div>
-        <div class="table-responsive" [class.d-none]="isLoading">
+        <div class="table-responsive" [class.d-none]="isLoadingMap">
           <div id="worldChart" style="width: 100%; height: 400px; overflow: hidden"></div>
         </div>
         <div class="dropdownfloat-right d-md-none d-inline">
@@ -303,6 +303,10 @@
     </div><!-- end col -->
     <div class="col-xl-3">
       <div class="card-box text-center">
+        <h5>Outbreak Started</h5>
+        <app-countup></app-countup>
+      </div>
+      <div class="card-box text-center">
 
         <h5>Share with your friends, family or coworkers.</h5>
         <p>Keep them up to date with the coronavirus outbreak.</p>
@@ -317,13 +321,8 @@
         <a class="btn btn-icon waves-effect btn-blue"
           href="whatsapp://send?text=Coronavirus live statistics and tracker https://coronastatistics.live"
           data-action="share/whatsapp/share"> <i class="fab fa-whatsapp"></i> </a>
-        <a href="https://ko-fi.com/ossamarafique" class="btn btn- waves-effect btn-danger d-block mt-2 mx-auto"> <i
+        <a href="https://ko-fi.com/ossamarafique" class="btn btn- waves-effect btn-danger d-block mt-1 mx-auto"> <i
             class="fas fa-coffee"></i> Buy me a coffee </a>
-      </div>
-      <div class="card-box text-center">
-
-        <h5>Outbreak Started</h5>
-        <app-countup></app-countup>
       </div>
     </div><!-- end col -->
 

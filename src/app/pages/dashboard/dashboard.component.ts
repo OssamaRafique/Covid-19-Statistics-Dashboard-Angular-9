@@ -49,6 +49,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   private lineChart: am4charts.XYChart;
   private radarChart: am4charts.RadarChart;
   public isLoading: boolean = true;
+  public isLoadingMap: boolean = true;
   public isLoadingCountries: boolean = true;
 
   public totalCases;
@@ -376,6 +377,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
      .subscribe(([getAllData, getTimelineData]) => {
       this.isLoading = false;
       this.isLoadingCountries = false;
+      this.isLoadingMap = false;
       this.countries = getAllData;
       this.totalCases = this.calculateSum("cases");
       this.totalDeaths = this.calculateSum("deaths");
@@ -491,6 +493,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.lineChart = chart;
   }
   loadMap(option) {
+    this.isLoadingMap=true;
+    if (this.mapChart) {
+      this.mapChart.dispose();
+    }
     let color = "#21AFDD";
     if (option == "recovered") {
       color = "#10c469";
@@ -501,12 +507,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
     let mapData = [];
     this.fuse.list.forEach(element => {
-      mapData.push({
-        id: this.countryCodes[element.country],
-        name: element.country,
-        value: element[option],
-        color: am4core.color(color)
-      });
+      if(element[option]!=0){
+        mapData.push({
+          id: this.countryCodes[element.country],
+          name: element.country,
+          value: element[option],
+          color: am4core.color(color)
+        });
+      }
     });
 
     let chartMap = am4core.create("worldChart", am4maps.MapChart);
@@ -536,6 +544,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     circle.propertyFields.fill = "color";
     circle.tooltipText = "{name}: [bold]{value}[/]";
 
+    chartMap.events.on("ready",()=>{
+      this.isLoadingMap = false;
+    })
 
     imageSeries.heatRules.push({
       "target": circle,
