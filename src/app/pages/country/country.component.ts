@@ -32,15 +32,15 @@ export class CountryComponent implements OnInit {
 
   public timeLine;
 
-  public totalCases;
-  public totalDeaths;
+  public totalCases=0;
+  public totalDeaths=0;
   public totalRecoveries;
-  public totalCritical;
-  public todayCases;
-  public todayDeaths;
-  public activeCases;
-  public casesPer1M;
-  public finishedCases;
+  public totalCritical=0;
+  public todayCases=0;
+  public todayDeaths=0;
+  public activeCases=0;
+  public casesPer1M=0;
+  public finishedCases=0;
 
 
   constructor(private route: ActivatedRoute, private _getDataService: GetdataService, private zone: NgZone) {}
@@ -433,7 +433,6 @@ export class CountryComponent implements OnInit {
           this.activeCases = getAllData["active"];
           this.casesPer1M = getAllData["casesPerOneMillion"];
           this.finishedCases = this.totalDeaths + this.totalRecoveries;
-
           this.timeLine = getTimelineData;
           this.loadPieChart();
           this.loadLineChart();

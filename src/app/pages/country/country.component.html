@@ -167,7 +167,11 @@
                       <i class="fas fa-circle-notch fa-spin m-2 text-blue"></i>
                     </div>
                     <h2 [class.d-none]="isLoading" class="font-weight-normal text-success">
-                      {{(totalRecoveries / finishedCases * 100) | number:'.1-2'}}%</h2>
+                      <span *ngIf="finishedCases>0 else naRecovery">{{(totalRecoveries / finishedCases * 100) | number:'.1-2'}}%</span>
+                      <ng-template #naRecovery>
+                        <span>N/A</span>
+                      </ng-template>
+                    </h2>
                     <h5>Recovery Rate</h5>
                   </div>
                 </div>
@@ -180,7 +184,11 @@
                       <i class="fas fa-circle-notch fa-spin m-2 text-danger"></i>
                     </div>
                     <h2 [class.d-none]="isLoading" class="font-weight-normal text-danger">
-                      {{(totalDeaths / finishedCases * 100) | number:'.1-2'}}%</h2>
+                      <span *ngIf="finishedCases>0 else naDeath">{{(totalDeaths / finishedCases * 100) | number:'.1-2'}}%</span>
+                      <ng-template #naDeath>
+                        <span>N/A</span>
+                      </ng-template>
+                    </h2>
                     <h5>Death Rate</h5>
                   </div>
                 </div>
