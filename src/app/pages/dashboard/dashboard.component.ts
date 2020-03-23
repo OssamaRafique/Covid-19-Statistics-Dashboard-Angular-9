@@ -438,7 +438,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         ]
       });
       this.timeLine = getTimelineData;
-      this.loadLineChart();
+      this.loadLineChart(false);
       this.loadRadar();
       this.loadPieChart();
 
@@ -493,7 +493,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     this.loadMap("cases");
   }
-  loadLineChart() {
+
+  loadLineChart(chartType) {
+    this.caseData = [];
+    if (this.lineChart) {
+      this.lineChart.dispose();
+    }
     Object.keys(this.timeLine).forEach(key => {
       this.caseData.push({
         date: new Date(key),
@@ -510,12 +515,18 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
 
     let chart = am4core.create("lineChart", am4charts.XYChart);
+    chart.numberFormatter.numberFormat = "#a";
+    chart.numberFormatter.bigNumberPrefixes = [
+      { "number": 1e+3, "suffix": "K" },
+      { "number": 1e+6, "suffix": "M" },
+      { "number": 1e+9, "suffix": "B" }
+    ];
     // Create axes
     let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.minGridDistance = 50;
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
+    valueAxis.logarithmic = chartType;
     valueAxis.renderer.labels.template.fill = am4core.color("#adb5bd");
     dateAxis.renderer.labels.template.fill = am4core.color("#adb5bd");
 

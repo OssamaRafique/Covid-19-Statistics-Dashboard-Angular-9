@@ -476,12 +476,19 @@ export class CountryComponent implements OnInit {
       deaths: this.totalDeaths
     });
     let chart = am4core.create("lineChart", am4charts.XYChart);
+    chart.numberFormatter.numberFormat = "#a";
+    chart.numberFormatter.bigNumberPrefixes = [
+      { "number": 1e+3, "suffix": "K" },
+      { "number": 1e+6, "suffix": "M" },
+      { "number": 1e+9, "suffix": "B" }
+    ];
+    
     // Create axes
     let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.minGridDistance = 50;
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
+    
     valueAxis.renderer.labels.template.fill = am4core.color("#adb5bd");
     dateAxis.renderer.labels.template.fill = am4core.color("#adb5bd");
 
@@ -495,8 +502,8 @@ export class CountryComponent implements OnInit {
     chart.legend.labels.template.fill = am4core.color("#adb5bd");
 
     chart.cursor = new am4charts.XYCursor();
+    
     this.lineChart = chart;
-
   }
 
 

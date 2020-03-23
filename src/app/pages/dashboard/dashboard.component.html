@@ -170,7 +170,7 @@
   <div class="row">
     <div class="col-xl-4">
       <div class="card-box">
-        <div class="dropdown float-right">
+        <div class="float-right">
           <p>Today's Statistics</p>
         </div>
 
@@ -222,7 +222,7 @@
 
     <div class="col-xl-8">
       <div class="card-box">
-        <div class="dropdown float-md-right float-right d-md-inline d-none">
+        <div class="float-md-right float-right d-md-inline d-none">
           <button type="button" class="btn btn-xs btn-lighten-blue waves-effect waves-light width-xs mr-md-1 mr-0"
             (click)="loadMap('cases');">Cases</button>
           <button type="button" class="btn btn-xs btn-lighten-danger waves-effect waves-light width-xs mr-md-1 mr-0"
@@ -240,7 +240,7 @@
         <div class="table-responsive" [class.d-none]="isLoadingMap">
           <div id="worldChart" style="width: 100%; height: 400px; overflow: hidden"></div>
         </div>
-        <div class="dropdownfloat-right d-md-none d-inline">
+        <div class="float-right d-md-none d-inline">
           <button type="button"
             class="btn btn-block btn-xs btn-lighten-blue waves-effect waves-light width-xs mr-md-1 mr-0"
             (click)="loadMap('cases');">Cases</button>
@@ -274,6 +274,13 @@
 
     <div class="col-xl-8">
       <div class="card-box">
+        <div class="float-md-right float-right d-md-inline d-none">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="enableLogarithmicScale" #enableLogarithmicScale (change)="loadLineChart(enableLogarithmicScale.checked)"
+            >
+            <label class="custom-control-label" for="enableLogarithmicScale">Enable Logarithmic Scale</label>
+          </div>
+        </div>
         <h4 class="header-title mt-0 mb-3 mt-md-0">Infections History</h4>
         <div class="fa-3x text-center" [class.d-none]="!isLoading">
           <i class="fas fa-circle-notch fa-spin m-2"></i>
