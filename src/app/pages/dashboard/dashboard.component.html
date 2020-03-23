@@ -1,4 +1,67 @@
 <div class="container-fluid">
+  <div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal"
+    class="modal fade d-block" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body text-center pt-4">
+
+          <div *ngIf="modalStep == 1" class="modal-step" [@fadeInOutAnimation]>
+            <img src="assets/images/step-1.png" width="125">
+            <h5 class="text-white mt-3">KNOW HOW IT <span class="text-blue">SPREADS</span></h5>
+            <h6 class="text-white">There is currently No Vaccine to prevent <span class="text-danger">COVID-19</span>
+            </h6>
+            <p>The virus is thought to spread mainly from person-to-person contact
+              through respiratory droplets produced when an infected person coughs or sneezes.</p>
+          </div>
+          <div *ngIf="modalStep == 2" class="modal-step" [@fadeInOutAnimation]>
+            <img src="assets/images/step-2.png" width="125">
+            <h5 class="text-white mt-3">TAKE STEPS TO <span class="text-blue">PROTECT YOURSELF</span></h5>
+            <p>Frequently Wash your hands with soap and water for at least 20 seconds. Always Carry a hand sanitizer
+              that contains at least 60% alcohol.
+              Avoid touching your eyes, nose, and mouth with unwashed hands.</p>
+          </div>
+          <div *ngIf="modalStep == 3" class="modal-step" [@fadeInOutAnimation]>
+            <img src="assets/images/step-3.png" width="125">
+            <h5 class="text-white mt-3">AVOID <span class="text-blue">CLOSE CONTACT</span></h5>
+            <p>Avoid close contact with people who are sick. Put distance between yourself and other people if
+              COVID-19/Coronavirus is spreading in your community.</p>
+
+          </div>
+          <div *ngIf="modalStep == 4" class="modal-step" [@fadeInOutAnimation]>
+            <img src="assets/images/step-4.png" width="125">
+            <h5 class="text-white mt-3">TAKE STEPS TO <span class="text-blue">PROTECT YOURSELF</span></h5>
+            <p>
+              Cover your mouth and nose with a tissue when you cough or sneeze or use the inside of your elbow.
+              Immediately wash your hands with soap and water for at least 20 seconds or clean your hands with a
+              hand sanitizer that contains at least 60% alcohol.
+            </p>
+          </div>
+          <div *ngIf="modalStep == 5" class="modal-step" [@fadeInOutAnimation]>
+            <img src="assets/images/step-5.png" width="125">
+            <h5 class="text-white mt-3">CLEAN & <span class="text-blue">DISINFECT</span></h5>
+            <p>
+              Clean & disinfect frequently touched surfaces daily. This includes tables, doorknobs, light switches,
+              countertops, handles, desks, phones, keyboards, toilets, faucets, and sinks.
+              If surfaces are dirty, clean them: Use detergent or soap and water prior to disinfection.
+            </p>
+          </div>
+          <div class="col-12 text-center" *ngIf="modalStep!=5">
+            <button (click)="nextStep()" class="btn btn-secondary waves-effect waves-light mb-4"><span>Next
+              </span><i class="fa fa-arrow-right mr-1"></i></button>
+          </div>
+          <div class="col-12 text-center" *ngIf="modalStep==5">
+            <div class="form-group">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="forDontShow" #dontShow>
+                <label class="custom-control-label" for="forDontShow">Don't Show again</label>
+              </div>
+            </div>
+            <button (click)="close(dontShow.checked)" class="btn btn-blue waves-effect waves-light mb-4"><i class="fas fa-times-circle mr-1"></i><span> Close</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xl-3 col-md-6 col-6">
       <div class="card-box">
@@ -169,7 +232,8 @@
           <button type="button" class="btn btn-xs btn-lighten-warning waves-effect waves-light width-xs"
             (click)="loadMap('critical')">Critical</button>
         </div>
-        <h4 class="header-title mt-0 mb-3 mt-md-0">Worldwide Infections</h4>
+        <h4 class="header-title mt-0 mb-3 mt-md-0">Worldwide Infections <button type="button" class="btn btn-xs btn-lighten-secondary waves-effect waves-light width-xs mr-md-1 mr-0"
+          (click)="showModal();">How to prevent?</button></h4>
         <div class="fa-3x text-center" [class.d-none]="!isLoadingMap">
           <i class="fas fa-circle-notch fa-spin m-2"></i>
         </div>
@@ -327,6 +391,5 @@
     </div><!-- end col -->
 
   </div>
-
 
 </div> <!-- end container -->

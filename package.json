@@ -27,6 +27,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "fuse.js": "^3.4.3",
+    "ngx-bootstrap": "^5.5.0",
     "ngx-perfect-scrollbar": "^9.0.0",
     "rxjs": "^6.5.4",
     "tslib": "^1.10.0",

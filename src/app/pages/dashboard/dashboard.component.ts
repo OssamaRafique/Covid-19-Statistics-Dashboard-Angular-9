@@ -24,6 +24,8 @@ import {
 import {
   isUndefined
 } from 'util';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import { trigger, transition, animate, style, state } from '@angular/animations'
 
 //am4core.useTheme(am4themes_dataviz);
 am4core.useTheme(am4themes_animated);
@@ -31,10 +33,44 @@ am4core.useTheme(am4themes_animated);
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  animations: [
+    trigger('fadeInOutAnimation', [
+      state('in', style({opacity: 1})),
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(600 )
+      ])
+    ])
+  ]
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild(PerfectScrollbarComponent) public directiveScroll: PerfectScrollbarComponent;
+  @ViewChild('autoShownModal', { static: false }) autoShownModal: ModalDirective;
+  isModalShown = false;
+  public modalStep = 1;
+  showModal(): void {
+    this.modalStep = 1;
+    this.isModalShown = true;
+  }
+ 
+  hideModal(): void {
+    this.autoShownModal.hide();
+  }
+ 
+  onHidden(): void {
+    this.isModalShown = false;
+  }
+  nextStep(){
+    this.modalStep+=1;
+  }
+  close(dontShow){
+    if(dontShow){
+      localStorage.setItem("dontShow","true");
+    }
+    this.hideModal();
+  }
+
   public fuse: any;
   public fuseResults: any[];
 
@@ -369,6 +405,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
 
   async ngOnInit() {
+    if(!localStorage.getItem("dontShow")){
+      this.showModal();
+    }
     this.zone.runOutsideAngular(async () => {
       combineLatest(
         this._getDataService.getAll(this.sortType),
