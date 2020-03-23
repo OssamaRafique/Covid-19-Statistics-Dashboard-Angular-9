@@ -106,6 +106,17 @@
 
   </div>
 
+  <div class="row" [ngClass]="{'hidden':!hasStates, 'not-hidden':hasStates}">
+    <div class="col-xl-12">
+      <div class="card-box">
+        <h4 class="header-title mb-3">States Infections</h4>
+        <div class="fa-3x text-center" [class.d-none]="!isLoading">
+          <i class="fas fa-circle-notch fa-spin m-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-xl-4">
       <div class="card-box">

@@ -29,6 +29,7 @@ export class CountryComponent implements OnInit {
   private radarChart: am4charts.RadarChart
 
   public isLoading: boolean = true;
+  public hasStates: boolean = false;
 
   public timeLine;
 
@@ -347,6 +348,7 @@ export class CountryComponent implements OnInit {
     let nameTimeline = this.route.snapshot.paramMap.get("name").toLowerCase();
     if (nameTimeline == "usa") {
       nameTimeline = "us";
+      this.hasStates = true;
     } else if(nameTimeline == "taiwan"){
       nameTimeline = "taiwan*";
     } else if(nameTimeline == "isle of man"){
