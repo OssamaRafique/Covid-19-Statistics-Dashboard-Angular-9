@@ -42,7 +42,7 @@ export class CountryComponent implements OnInit {
   public activeCases=0;
   public casesPer1M=0;
   public finishedCases=0;
-
+  public states;
 
   constructor(private route: ActivatedRoute, private _getDataService: GetdataService, private zone: NgZone) {}
 
@@ -474,9 +474,10 @@ export class CountryComponent implements OnInit {
     this.zone.runOutsideAngular(() => {
       combineLatest(
           this._getDataService.getCountry(this.route.snapshot.paramMap.get("name")),
+          this._getDataService.getState(this.route.snapshot.paramMap.get("name"), "all"),
           this._getDataService.getTimelineCountry(nameTimeline)
         )
-        .subscribe(([getAllData, getTimelineData]) => {
+        .subscribe(([getAllData, getAllStates, getTimelineData]) => {
           this.isLoading = false;
           this.country = getAllData;
           this.totalCases = getAllData["cases"];
@@ -489,6 +490,7 @@ export class CountryComponent implements OnInit {
           this.casesPer1M = getAllData["casesPerOneMillion"];
           this.finishedCases = this.totalDeaths + this.totalRecoveries;
           this.timeLine = getTimelineData;
+          this.states = getAllStates;
           this.loadPieChart();
           this.loadLineChart();
           this.loadRadar();

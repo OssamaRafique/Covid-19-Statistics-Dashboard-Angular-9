@@ -9,6 +9,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 const routes: Routes = [
   { path: '',  component: DashboardComponent},
   { path: 'country/:name', component : CountryComponent},
+  { path: 'country/:countryName/:stateName', component : CountryComponent},
   { path: '**', component : NotFoundComponent}
 ];
 

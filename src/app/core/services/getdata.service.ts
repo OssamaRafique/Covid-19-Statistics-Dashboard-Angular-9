@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
 import { Country } from '../models/country';
+import { State } from '../models/state'
 import { Observable, throwError } from 'rxjs';
 
 HttpClient
@@ -21,6 +22,12 @@ export class GetdataService {
   }
   getCountry(name): Observable<Country>{
     return this._http.get<Country>(`${this.host}/countries/${name}`).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+  getState(countryName, stateName): Observable<State>{
+    return this._http.get<State>(`${this.host}/countries/${countryName}/${stateName}`).pipe(
       retry(1),
       catchError(this.handleError)
     );

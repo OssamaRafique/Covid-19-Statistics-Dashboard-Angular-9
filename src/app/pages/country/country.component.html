@@ -113,6 +113,26 @@
         <div class="fa-3x text-center" [class.d-none]="!isLoading">
           <i class="fas fa-circle-notch fa-spin m-2"></i>
         </div>
+        <table>
+          <thead>
+            <th>State</th>
+            <th>Infections</th>
+            <th>New Infections</th>
+            <th>Deaths</th>
+            <th>New Deaths</th>
+            <th>Active Cases</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let state of states">
+              <td>{{state.state}}</td>
+              <td>{{state.cases}}</td>
+              <td>{{state.todayCases}}</td>
+              <td>{{state.deaths}}</td>
+              <td>{{state.todayDeaths}}</td>
+              <td>{{state.activeCases}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

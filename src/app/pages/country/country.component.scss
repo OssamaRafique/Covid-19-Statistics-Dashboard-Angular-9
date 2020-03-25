@@ -9,3 +9,22 @@
 .not-hidden {
     display: "";
 }
+
+table {
+    width: 100%;
+    overflow: auto;
+    max-height: 100vh;
+}
+
+th {
+    color: white;
+    padding-bottom: 5px;
+}
+
+tr:nth-child(2n) {
+    background-color: #262d36;
+}
+
+tr:nth-child(2n + 1) {
+    background-color: #485566;
+}
