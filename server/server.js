@@ -410,7 +410,39 @@ app.get("/countries/:country", async function (req, res) {
   }
   res.send(country);
 });
-
+app.get("/countries/usa/all", async function (req, res) {
+  let states = JSON.parse(await redis.get(keys.usa_states))
+  if (req.query['sort']) {
+    try {
+      const sortProp = req.query['sort'];
+      states.sort((a, b) => {
+        if (a[sortProp] < b[sortProp]) {
+          return -1;
+        } else if (a[sortProp] > b[sortProp]) {
+          return 1;
+        }
+        return 0;
+      })
+    } catch (e) {
+      console.error("ERROR while sorting", e);
+      res.status(422).send(e);
+      return;
+    }
+  }
+  res.send(states);
+});
+app.get("/countries/usa/:state", async function(req, res) {
+  const stateName = req.params.state;
+  let usaStates = JSON.parse(await redis.get(keys.usa_states))
+  let state = usaStates.find(
+    e => e.state.toLowerCase().includes(stateName.toLowerCase())
+  )
+  if (!state) {
+    res.send("Unable to find state: " + stateName);
+    return;
+  }
+  res.send(state);
+})
 app.get("/timeline", async function (req, res) {
 
   let data = JSON.parse(await redis.get(keys.timeline))
@@ -421,7 +453,6 @@ app.get("/timeline/global", async function (req, res) {
   let data = JSON.parse(await redis.get(keys.timelineglobal))
   res.send(data);
 });
-
 app.get("/timeline/:country", async function (req, res) {
   let data = JSON.parse(await redis.get(keys.timeline));
   let country = data.find(
