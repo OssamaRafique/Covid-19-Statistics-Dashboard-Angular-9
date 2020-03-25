@@ -410,7 +410,12 @@ app.get("/countries/:country", async function (req, res) {
   }
   res.send(country);
 });
-app.get("/countries/usa/all", async function (req, res) {
+app.get("/countries/:country/all", async function (req, res) {
+  if (req.params.country !== "usa") {
+    res.status(200).json([]);
+    return;
+  }
+
   let states = JSON.parse(await redis.get(keys.usa_states))
   if (req.query['sort']) {
     try {
@@ -431,18 +436,18 @@ app.get("/countries/usa/all", async function (req, res) {
   }
   res.send(states);
 });
-app.get("/countries/usa/:state", async function(req, res) {
-  const stateName = req.params.state;
-  let usaStates = JSON.parse(await redis.get(keys.usa_states))
-  let state = usaStates.find(
-    e => e.state.toLowerCase().includes(stateName.toLowerCase())
-  )
-  if (!state) {
-    res.send("Unable to find state: " + stateName);
-    return;
-  }
-  res.send(state);
-})
+// app.get("/countries/usa/:state", async function(req, res) {
+//   const stateName = req.params.state;
+//   let usaStates = JSON.parse(await redis.get(keys.usa_states))
+//   let state = usaStates.find(
+//     e => e.state.toLowerCase().includes(stateName.toLowerCase())
+//   )
+//   if (!state) {
+//     res.send("Unable to find state: " + stateName);
+//     return;
+//   }
+//   res.send(state);
+// })
 app.get("/timeline", async function (req, res) {
 
   let data = JSON.parse(await redis.get(keys.timeline))
