@@ -10,6 +10,11 @@
     display: "";
 }
 
+.states-table {
+    overflow-y:auto;
+    height: 300px;
+}
+
 table {
     width: 100%;
     overflow: auto;
