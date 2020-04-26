@@ -1,14 +1,14 @@
 
-<h1 align="center">Welcome to 🦠 Corona Statistics Dashboard Angular 9 👋</h1>
+<h1 align="center">Welcome to 🦠 COVID-19/Corona Statistics Dashboard Angular 9 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.5.0-blue.svg?cacheSeconds=2592000" />
     <img alt="Version" src="https://img.shields.io/badge/build-passing-brightgreen" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <a href="https://discord.gg/QFmHc9" target="_blank">
+<!--   <a href="https://discord.gg/QFmHc9" target="_blank">
     <img alt="Discord Server" src="https://user-images.githubusercontent.com/7288322/34472039-a19b9ed4-efbc-11e7-8946-c1ff405ae2a6.png" />
-  </a>
+  </a> -->
   <a href="https://ko-fi.com/ossamarafique" target="_blank">
     <img alt="Buy Me A Coffee" src="https://www.ko-fi.com/img/githubbutton_sm.svg" />
   </a>
@@ -26,10 +26,11 @@
 
 ## Screenshots
 
-<img alt="Covid Stats Live Dashboard Screenshot 1" src="https://coronastatistics.live/screenshots/sc1.png" />
-<img alt="Covid Stats Live Dashboard Screenshot 2" src="https://coronastatistics.live/screenshots/sc2.png" />
-<img alt="Covid Stats Live Dashboard Screenshot 3" src="https://coronastatistics.live/screenshots/sc3.png" />
-<img alt="Covid Stats Live Dashboard Screenshot 4" src="https://coronastatistics.live/screenshots/sc4.png" />
+<img alt="Covid Stats Live Dashboard Screenshot 1" src="https://coronastatistics.live/screenshots/scn1.png" />
+<img alt="Covid Stats Live Dashboard Screenshot 2" src="https://coronastatistics.live/screenshots/scn2.png" />
+<img alt="Covid Stats Live Dashboard Screenshot 3" src="https://coronastatistics.live/screenshots/scn3.png" />
+<img alt="Covid Stats Live Dashboard Screenshot 4" src="https://coronastatistics.live/screenshots/scn4.png" />
+<img alt="Covid Stats Live Dashboard Screenshot 5" src="https://coronastatistics.live/screenshots/scn5.png" />
 
 ## Build the Angular project
 
