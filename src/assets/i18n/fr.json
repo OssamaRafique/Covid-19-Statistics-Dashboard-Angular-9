@@ -1,0 +1,110 @@
+{
+    "Home": {
+        "AffectedCountries": {
+            "1": "Nations affectées",
+            "2": "Statistiques du jour",
+            "3": "Recherche",
+            "4": "Trier par",
+            "5": "Total des cas",
+            "6": "Cas d'aujourd'hui",
+            "7": "Total des décès",
+            "8": "Today Deaths",
+            "9": "Total des recouvrements",
+            "10": "Cas",
+            "11": "Décès"
+        },
+        "WorldMap": {
+            "1": "Infections mondiales",
+            "2": "Comment prévenir?"
+        },
+        "InfectionCountries": {
+            "1": "Répartition des infections par pays"
+        }
+    },
+    "Country": {
+        "InfectionCountries": {
+            "1": "Distribution des cas"
+        }
+
+    },
+    "Shared": {
+        "TopCards": {
+            "1": "Cas",
+            "2": "Infections",
+            "3": "Décès",
+            "4": "Récupérations",
+            "5": "Critique",
+            "6": "aujourd'hui",
+            "7": "par million",
+            "8": "restant"
+        },
+        "RateDistribution": {
+            "1": "Répartition des tarifs"
+        },
+        "InfectionsHistory": {
+            "1": "Historique des infections",
+            "2": "Activer l'échelle logarithmique"
+        },
+        "Rates": {
+            "1": "Taux d'infection",
+            "2": "Taux de récupération",
+            "3": "Taux de mortalité",
+            "4": "Taux critique",
+            "5": "Cas légers"
+        },
+        "HowToPrevent": {
+            "Slide1": {
+                "1": "SAVOIR COMMENT CELA",
+                "2": "Spreads",
+                "3": "Il n'y a actuellement aucun vaccin à prévenir",
+                "4": "COVID-19",
+                "5": "On pense que le virus se propage principalement par contact de personne à personne par le biais de gouttelettes respiratoires produites lorsqu'une personne infectée tousse ou éternue."
+            },
+            "Slide2": {
+                "1": "PRENDRE DES MESURES POUR",
+                "2": "PROTÉGEZ-VOUS",
+                "3": "Lavez-vous fréquemment les mains à l'eau et au savon pendant au moins 20 secondes. Portez toujours un désinfectant pour les mains contenant au moins 60% d'alcool. Évitez de vous toucher les yeux, le nez et la bouche avec des mains non lavées."
+            },
+            "Slide3": {
+                "1": "À ÉVITER",
+                "2": "FERMER CONTACT",
+                "3": "Évitez les contacts étroits avec les personnes malades. Mettez de la distance entre vous et les autres si le COVID-19 / Coronavirus se propage dans votre communauté."
+            },
+            "Slide4": {
+                "1": "PRENDRE DES MESURES POUR",
+                "2": "PROTÉGEZ-VOUS",
+                "3": "Couvrez-vous la bouche et le nez avec un mouchoir lorsque vous toussez ou éternuez ou utilisez l'intérieur de votre coude. Lavez-vous immédiatement les mains à l'eau et au savon pendant au moins 20 secondes ou nettoyez-vous les mains avec un désinfectant pour les mains contenant au moins au moins 60% d'alcool. "
+            },
+            "Slide5": {
+                "1": "NETTOYER &",
+                "2": "DÉSINFECTER",
+                "3": "Nettoyez et désinfectez quotidiennement les surfaces fréquemment touchées. Cela comprend les tables, les poignées de porte, les interrupteurs d'éclairage, les comptoirs, les poignées, les bureaux, les téléphones, les claviers, les toilettes, les robinets et les éviers. Si les surfaces sont sales, nettoyez-les: utilisez un détergent ou du savon et de l'eau avant la désinfection. "
+            },
+            "buttonNext": "Prochain",
+            "buttonClose": "Proche",
+            "dontShowText": "Ne plus montrer"
+        },
+        "Other": {
+            "1": "Nations affectées",
+            "2": "Début de l'épidémie",
+            "3": "jours",
+            "4": "heures",
+            "5": "minutes",
+            "6": "Secs",
+            "7": "Fièrement Open Source",
+            "8": "Achetez-moi un café",
+            "9": "Partagez avec vos amis, votre famille ou vos collègues.",
+            "10": "Tenez-les informés de l'épidémie de coronavirus.",
+            "11": "Contactez-moi",
+            "12": "Fabriqué avec",
+            "13": "par",
+            "14": "Actif",
+            "15": "Récupéré",
+            "16": "Décès",
+            "17": "Critique",
+            "18": "Statistiques",
+            "19": "Installer l'application",
+            "20": "Choisir la langue"
+        }
+    }
+}

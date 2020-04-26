@@ -1,11 +1,12 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
+  OnDestroy,
   NgZone,
   ViewChild,
+  DoCheck,
 } from '@angular/core';
-
+import COUNTRY_CODES from "../../shared/utils/countries"
 import { combineLatest } from 'rxjs';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -26,7 +27,7 @@ import {
 } from 'util';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { trigger, transition, animate, style, state } from '@angular/animations'
-
+import { TranslateService } from '@ngx-translate/core';
 //am4core.useTheme(am4themes_dataviz);
 am4core.useTheme(am4themes_animated);
 
@@ -44,33 +45,12 @@ am4core.useTheme(am4themes_animated);
     ])
   ]
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit, OnDestroy, DoCheck {
   @ViewChild(PerfectScrollbarComponent) public directiveScroll: PerfectScrollbarComponent;
   @ViewChild('autoShownModal', { static: false }) autoShownModal: ModalDirective;
   isModalShown = false;
   public modalStep = 1;
-  showModal(): void {
-    this.modalStep = 1;
-    this.isModalShown = true;
-  }
- 
-  hideModal(): void {
-    this.autoShownModal.hide();
-  }
- 
-  onHidden(): void {
-    this.isModalShown = false;
-  }
-  nextStep(){
-    this.modalStep+=1;
-  }
-  close(dontShow){
-    if(dontShow){
-      localStorage.setItem("dontShow","true");
-    }
-    this.hideModal();
-  }
-
+  public translations: any = {};
   public fuse: any;
   public fuseResults: any[];
 
@@ -97,261 +77,21 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public activeCases;
   public casesPer1M;
   public finishedCases;
-
+  
   public sortType = "todayCases";
-
-  public countryCodes = {
-    'Afghanistan': 'AF',
-    'Aland Islands': 'AX',
-    'Albania': 'AL',
-    'Algeria': 'DZ',
-    'American Samoa': 'AS',
-    'Andorra': 'AD',
-    'Angola': 'AO',
-    'Anguilla': 'AI',
-    'Antarctica': 'AQ',
-    'Antigua And Barbuda': 'AG',
-    'Argentina': 'AR',
-    'Armenia': 'AM',
-    'Aruba': 'AW',
-    'Australia': 'AU',
-    'Austria': 'AT',
-    'Azerbaijan': 'AZ',
-    'Bahamas': 'BS',
-    'Bahrain': 'BH',
-    'Bangladesh': 'BD',
-    'Barbados': 'BB',
-    'Belarus': 'BY',
-    'Belgium': 'BE',
-    'Belize': 'BZ',
-    'Benin': 'BJ',
-    'Bermuda': 'BM',
-    'Bhutan': 'BT',
-    'Bolivia': 'BO',
-    'Bosnia and Herzegovina': 'BA',
-    'Botswana': 'BW',
-    'Bouvet Island': 'BV',
-    'Brazil': 'BR',
-    'British Indian Ocean Territory': 'IO',
-    'Brunei': 'BN',
-    'Bulgaria': 'BG',
-    'Burkina Faso': 'BF',
-    'Burundi': 'BI',
-    'Cambodia': 'KH',
-    'Cameroon': 'CM',
-    'Canada': 'CA',
-    'Cape Verde': 'CV',
-    'Cayman Islands': 'KY',
-    'Central African Republic': 'CF',
-    'Chad': 'TD',
-    'Chile': 'CL',
-    'China': 'CN',
-    'Christmas Island': 'CX',
-    'Cocos (Keeling) Islands': 'CC',
-    'Colombia': 'CO',
-    'Comoros': 'KM',
-    'Congo': 'CG',
-    'DRC': 'CD',
-    'Cook Islands': 'CK',
-    'Costa Rica': 'CR',
-    'Ivory Coast': 'CI',
-    'Croatia': 'HR',
-    'Cuba': 'CU',
-    'Cyprus': 'CY',
-    'Czechia': 'CZ',
-    'Denmark': 'DK',
-    'Djibouti': 'DJ',
-    'Dominica': 'DM',
-    'Dominican Republic': 'DO',
-    'Ecuador': 'EC',
-    'Egypt': 'EG',
-    'El Salvador': 'SV',
-    'Equatorial Guinea': 'GQ',
-    'Eritrea': 'ER',
-    'Estonia': 'EE',
-    'Ethiopia': 'ET',
-    'Falkland Islands': 'FK',
-    'Faeroe Islands': 'FO',
-    'Fiji': 'FJ',
-    'Finland': 'FI',
-    'France': 'FR',
-    'French Guiana': 'GF',
-    'French Polynesia': 'PF',
-    'French Southern Territories': 'TF',
-    'Gabon': 'GA',
-    'Gambia': 'GM',
-    'Georgia': 'GE',
-    'Germany': 'DE',
-    'Ghana': 'GH',
-    'Gibraltar': 'GI',
-    'Greece': 'GR',
-    'Greenland': 'GL',
-    'Grenada': 'GD',
-    'Guadeloupe': 'GP',
-    'Guam': 'GU',
-    'Guatemala': 'GT',
-    'Guernsey': 'GG',
-    'Guinea': 'GN',
-    'Guinea-Bissau': 'GW',
-    'Guyana': 'GY',
-    'Haiti': 'HT',
-    'Heard Island & Mcdonald Islands': 'HM',
-    'Holy See (Vatican City State)': 'VA',
-    'Honduras': 'HN',
-    'Hong Kong': 'HK',
-    'Hungary': 'HU',
-    'Iceland': 'IS',
-    'India': 'IN',
-    'Indonesia': 'ID',
-    'Iran': 'IR',
-    'Iraq': 'IQ',
-    'Ireland': 'IE',
-    'Isle Of Man': 'IM',
-    'Israel': 'IL',
-    'Italy': 'IT',
-    'Jamaica': 'JM',
-    'Japan': 'JP',
-    'Channel Islands': 'JE',
-    'Jordan': 'JO',
-    'Kazakhstan': 'KZ',
-    'Kenya': 'KE',
-    'Kiribati': 'KI',
-    'Korea': 'KR',
-    'S. Korea': 'KR',
-    'Kuwait': 'KW',
-    'Kyrgyzstan': 'KG',
-    'Lao People\'s Democratic Republic': 'LA',
-    'Latvia': 'LV',
-    'Lebanon': 'LB',
-    'Lesotho': 'LS',
-    'Liberia': 'LR',
-    'Libyan Arab Jamahiriya': 'LY',
-    'Liechtenstein': 'LI',
-    'Lithuania': 'LT',
-    'Luxembourg': 'LU',
-    'Macao': 'MO',
-    'Macedonia': 'MK',
-    'Madagascar': 'MG',
-    'Malawi': 'MW',
-    'Malaysia': 'MY',
-    'Maldives': 'MV',
-    'Mali': 'ML',
-    'Malta': 'MT',
-    'Marshall Islands': 'MH',
-    'Martinique': 'MQ',
-    'Mauritania': 'MR',
-    'Mauritius': 'MU',
-    'Mayotte': 'YT',
-    'Mexico': 'MX',
-    'Micronesia, Federated States Of': 'FM',
-    'Moldova': 'MD',
-    'Monaco': 'MC',
-    'Mongolia': 'MN',
-    'Montenegro': 'ME',
-    'Montserrat': 'MS',
-    'Morocco': 'MA',
-    'Mozambique': 'MZ',
-    'Myanmar': 'MM',
-    'Namibia': 'NA',
-    'Nauru': 'NR',
-    'Nepal': 'NP',
-    'Netherlands': 'NL',
-    'Netherlands Antilles': 'AN',
-    'New Caledonia': 'NC',
-    'New Zealand': 'NZ',
-    'Nicaragua': 'NI',
-    'Niger': 'NE',
-    'Nigeria': 'NG',
-    'Niue': 'NU',
-    'Norfolk Island': 'NF',
-    'North Macedonia': 'MP',
-    'Norway': 'NO',
-    'Oman': 'OM',
-    'Pakistan': 'PK',
-    'Palau': 'PW',
-    'Palestine': 'PS',
-    'Panama': 'PA',
-    'Papua New Guinea': 'PG',
-    'Paraguay': 'PY',
-    'Peru': 'PE',
-    'Philippines': 'PH',
-    'Pitcairn': 'PN',
-    'Poland': 'PL',
-    'Portugal': 'PT',
-    'Puerto Rico': 'PR',
-    'Qatar': 'QA',
-    'Réunion': 'RE',
-    'Romania': 'RO',
-    'Russia': 'RU',
-    'Rwanda': 'RW',
-    'Saint Barthelemy': 'BL',
-    'St. Barth': 'BL',
-    'Saint Helena': 'SH',
-    'Saint Kitts And Nevis': 'KN',
-    'Saint Lucia': 'LC',
-    'Saint Martin': 'MF',
-    'Saint Pierre And Miquelon': 'PM',
-    'St. Vincent Grenadines': 'VC',
-    'Samoa': 'WS',
-    'San Marino': 'SM',
-    'Sao Tome And Principe': 'ST',
-    'Saudi Arabia': 'SA',
-    'Senegal': 'SN',
-    'Serbia': 'RS',
-    'Seychelles': 'SC',
-    'Sierra Leone': 'SL',
-    'Singapore': 'SG',
-    'Slovakia': 'SK',
-    'Slovenia': 'SI',
-    'Solomon Islands': 'SB',
-    'Somalia': 'SO',
-    'South Africa': 'ZA',
-    'South Georgia And Sandwich Isl.': 'GS',
-    'Spain': 'ES',
-    'Sri Lanka': 'LK',
-    'Sudan': 'SD',
-    'Suriname': 'SR',
-    'Svalbard And Jan Mayen': 'SJ',
-    'Swaziland': 'SZ',
-    'Sweden': 'SE',
-    'Switzerland': 'CH',
-    'Syrian Arab Republic': 'SY',
-    'Taiwan': 'TW',
-    'Tajikistan': 'TJ',
-    'Tanzania': 'TZ',
-    'Thailand': 'TH',
-    'Timor-Leste': 'TL',
-    'Togo': 'TG',
-    'Tokelau': 'TK',
-    'Tonga': 'TO',
-    'Trinidad and Tobago': 'TT',
-    'Tunisia': 'TN',
-    'Turkey': 'TR',
-    'Turkmenistan': 'TM',
-    'Turks And Caicos Islands': 'TC',
-    'Tuvalu': 'TV',
-    'Uganda': 'UG',
-    'Ukraine': 'UA',
-    'UAE': 'AE',
-    'UK': 'GB',
-    'USA': 'US',
-    'United States Outlying Islands': 'UM',
-    'Uruguay': 'UY',
-    'Uzbekistan': 'UZ',
-    'Vanuatu': 'VU',
-    'Venezuela': 'VE',
-    'Vietnam': 'VN',
-    'Virgin Islands, British': 'VG',
-    'U.S. Virgin Islands': 'VI',
-    'Wallis And Futuna': 'WF',
-    'Western Sahara': 'EH',
-    'Yemen': 'YE',
-    'Zambia': 'ZM',
-    'Zimbabwe': 'ZW',
-    'Curaçao': 'CW'
-  };
-
+  
+  public countryCodes = COUNTRY_CODES;
+  
   public countries: any = [];
+  constructor(private zone: NgZone, private _getDataService: GetdataService, public translate: TranslateService) {
+  }
+  async ngDoCheck() {
+    this.translate.get(['Shared.Other.14', 'Shared.Other.15', 'Shared.Other.16', 'Shared.Other.17', 'Shared.TopCards.1', 'Shared.TopCards.3', 'Shared.TopCards.4'])
+    .subscribe(translations => {
+        this.setTranslations(translations);
+        return 0;
+    });
+  }
   calculateSum(index, array = this.countries) {
     var total = 0
     for (var i = 0, _len = array.length; i < _len; i++) {
@@ -378,13 +118,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
     return data
   }
-  constructor(private zone: NgZone, private _getDataService: GetdataService) {
-
-  }
-
-  ngAfterViewInit() {
-
-  }
 
   ngOnDestroy() {
     this.zone.runOutsideAngular(() => {
@@ -403,8 +136,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
-
+  
   async ngOnInit() {
+    await this.ngDoCheck();
     if(!localStorage.getItem("dontShow")){
       this.showModal();
     }
@@ -414,7 +148,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this._getDataService.getTimelineGlobal()
      )
      .subscribe(([getAllData, getTimelineData]) => {
-      this.isLoading = false;
+       this.isLoading = false;
       this.isLoadingCountries = false;
       this.isLoadingMap = false;
       this.countries = getAllData;
@@ -442,7 +176,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.loadRadar();
       this.loadPieChart();
 
-
+      
      });
     });
   }
@@ -456,13 +190,13 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
     this.countries = this.fuse.list;
   }
-
+  
   sortCountries(key, skey) {
     this.isLoadingCountries = true;
     this.sortType = key;
     this.loadSorted();
   }
-
+  
   loadSorted(){
     this._getDataService.getAll(this.sortType).subscribe((data: {}) => {
       this.countries = data;
@@ -493,7 +227,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     this.loadMap("cases");
   }
-
+  
   loadLineChart(chartType) {
     this.caseData = [];
     if (this.lineChart) {
@@ -524,7 +258,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     // Create axes
     let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.minGridDistance = 50;
-
+    
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.logarithmic = chartType;
     valueAxis.renderer.labels.template.fill = am4core.color("#adb5bd");
@@ -570,7 +304,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     let chartMap = am4core.create("worldChart", am4maps.MapChart);
     // Set map definition
     chartMap.geodata = am4geodata_worldLow;
-
+    
     // Set projection
     chartMap.projection = new am4maps.projections.Miller();
 
@@ -581,14 +315,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     polygonSeries.nonScalingStroke = true;
     polygonSeries.strokeWidth = 0.5;
     polygonSeries.calculateVisualCenter = true;
-
+    
     let imageSeries = chartMap.series.push(new am4maps.MapImageSeries());
     imageSeries.data = mapData;
     imageSeries.dataFields.value = "value";
-
+    
     let imageTemplate = imageSeries.mapImages.template;
     imageTemplate.nonScaling = true
-
+    
     let circle = imageTemplate.createChild(am4core.Circle);
     circle.fillOpacity = 0.7;
     circle.propertyFields.fill = "color";
@@ -605,7 +339,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       "max": 30,
       "dataField": "value"
     })
-
+    
     imageTemplate.adapter.add("latitude", function (latitude, target) {
       let polygon = polygonSeries.getPolygonById(target.dataItem.dataContext["id"]);
       if (polygon) {
@@ -613,7 +347,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       }
       return latitude;
     })
-
+    
     imageTemplate.adapter.add("longitude", function (longitude, target) {
       let polygon = polygonSeries.getPolygonById(target.dataItem.dataContext["id"]);
       if (polygon) {
@@ -630,22 +364,22 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   loadRadar() {
     let chart = am4core.create("radarChart", am4charts.RadarChart);
-
+    
     // Add data
     chart.data = [{
-      "category": "Critical",
+      "category": this.translations.critical,
       "value": this.totalCritical / this.activeCases * 100,
       "full": 100
     }, {
-      "category": "Death",
+      "category": this.translations.deaths,
       "value": this.totalDeaths / this.finishedCases * 100,
       "full": 100
     }, {
-      "category": "Recovered",
+      "category": this.translations.recovered,
       "value": this.totalRecoveries / this.finishedCases * 100,
       "full": 100
     }, {
-      "category": "Active",
+      "category": this.translations.active,
       "value": 100-(this.totalCritical / this.activeCases * 100),
       "full": 100
     }];
@@ -657,7 +391,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     // Set number format
     chart.numberFormatter.numberFormat = "#.#'%'";
-
+    
     // Create axes
     let categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis<am4charts.AxisRendererRadial>());
     categoryAxis.dataFields.category = "category";
@@ -683,7 +417,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     valueAxis.min = 0;
     valueAxis.max = 100;
     valueAxis.strictMinMax = true;
-
+    
     valueAxis.renderer.labels.template.fill = am4core.color("#adb5bd");
 
     // Create series
@@ -704,7 +438,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     series2.columns.template.strokeWidth = 0;
     series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
     series2.columns.template.radarColumn.cornerRadius = 20;
-
+    
     series2.columns.template.adapter.add("fill", function (fill, target) {
       //return chart.colors.getIndex(target.dataItem.index);
       if(target.dataItem.index==0){
@@ -718,16 +452,23 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       }
       return am4core.color("#21AFDD");
     });
-
+    
     // Add cursor
     chart.cursor = new am4charts.RadarCursor();
     chart.cursor.fill = am4core.color("#282e38");
     chart.tooltip.label.fill = am4core.color("#282e38");
-
+    
     this.radarChart = chart;
   }
   createSeriesLine(chart, color, type) {
     let name = type.charAt(0).toUpperCase() + type.slice(1);
+    if(type=="cases"){
+      name = this.translations.cases;
+    } else if(type=="recoveries"){
+      name = this.translations.recovered;
+    } else if(type=="deaths"){
+      name = this.translations.deaths;
+    }
     let series = chart.series.push(new am4charts.LineSeries());
     series.dataFields.valueY = type;
     series.fill = am4core.color(color);
@@ -745,5 +486,33 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     series.tooltip.autoTextColor = false;
     series.tooltip.label.fill = am4core.color("#282e38");
     return chart
+  }
+      showModal(): void {
+        this.modalStep = 1;
+        this.isModalShown = true;
+      }
+     
+      hideModal(): void {
+        this.autoShownModal.hide();
+      }
+     
+      onHidden(): void {
+        this.isModalShown = false;
+      }
+      nextStep(){
+        this.modalStep+=1;
+      }
+      close(dontShow){
+        if(dontShow){
+          localStorage.setItem("dontShow","true");
+        }
+        this.hideModal();
+      }
+  async setTranslations(translations){
+    this.translations.active = translations['Shared.Other.14'];
+    this.translations.recovered = translations['Shared.Other.15'];
+    this.translations.deaths = translations['Shared.Other.16'];
+    this.translations.critical = translations['Shared.Other.17'];
+    this.translations.cases = translations['Shared.Other.14'];
   }
 }

@@ -1,15 +1,23 @@
 <footer class="footer">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
-        2020 © Crafted with <span class="text-danger"><i class="fas fa-heart"></i></span> by <a href="https://ossamarafique.com">Ossama Rafique</a>
+      <div class="col-md-4 pt-1">
+        2020 © {{ 'Shared.Other.12' | translate }} <span class="text-danger"><i class="fas fa-heart"></i></span> {{ 'Shared.Other.13' | translate }} <a href="https://ossamarafique.com">Ossama Rafique</a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 pt-1">
         <div class="text-md-right footer-links d-none d-sm-block">
-          <a href="https://github.com/OssamaRafique/Corona-Statistics-And-Tracker-Dashboard-Angular-9"><span class="text-blue"><i class="fab fa-osi"></i></span> Proudly Open Source</a>
-          <a href="https://ko-fi.com/ossamarafique"><span class="text-warning"><i class="fas fa-mug-hot"></i></span> Buy me a Coffee</a>
-          <a href="https://www.ossamarafique.com/#contact"><span class="text-success"><i class="far fa-paper-plane"></i></span> Contact Me</a>
+          <a href="https://github.com/OssamaRafique/Corona-Statistics-And-Tracker-Dashboard-Angular-9"><span class="text-blue"><i class="fab fa-osi"></i></span> {{ 'Shared.Other.7' | translate }}</a>
+          <a href="https://ko-fi.com/ossamarafique"><span class="text-warning"><i class="fas fa-mug-hot"></i></span> {{ 'Shared.Other.8' | translate }}</a>
+          <a href="https://www.ossamarafique.com/#contact"><span class="text-success"><i class="far fa-paper-plane"></i></span> {{ 'Shared.Other.11' | translate }}</a>
         </div>
+      </div>
+      <div class="col-md-2">
+        <select #lang class="form-control form-control-sm" (change)="translate.use(lang.value)">
+          <option selected disabled>
+            {{ 'Shared.Other.20' | translate }}
+          </option>
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{lang}}</option>
+        </select>
       </div>
     </div>
   </div>
