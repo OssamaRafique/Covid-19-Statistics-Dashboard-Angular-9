@@ -1,0 +1,110 @@
+{
+    "Home" : {
+        "AffectedCountries": {
+            "1": "Affected Nations",
+            "2": "Today's Statistics",
+            "3": "Search",
+            "4": "Sort By",
+            "5": "Total Cases",
+            "6": "Today Cases",
+            "7": "Total Deaths",
+            "8": "Today Deaths",
+            "9": "Total Recoveries",
+            "10": "Cases",
+            "11": "Deaths"
+        },
+        "WorldMap": {
+            "1": "Worldwide Infections",
+            "2": "How to prevent?"
+        },
+        "InfectionCountries":{
+            "1": "Infection Distribution By Countries"
+        }
+    },
+    "Country" : {
+        "InfectionCountries": {
+            "1": "Cases Distribution"
+        }
+
+    },
+    "Shared": {
+        "TopCards" : {
+            "1": "Cases",
+            "2": "Infections",
+            "3": "Deaths",
+            "4": "Recoveries",
+            "5": "Critical",
+            "6": "today",
+            "7": "per million",
+            "8": "remaining"
+        },
+        "RateDistribution": {
+            "1": "Rate Distribution"
+        },
+        "InfectionsHistory":{
+            "1": "Infections History",
+            "2": "Enable Logarithmic Scale"
+        },
+        "HowToPrevent": {
+            "Slide1": {
+               "1": "KNOW HOW IT",
+               "2": "Spreads",
+               "3": "There is currently No Vaccine to prevent",
+               "4": "COVID-19",
+               "5": "The virus is thought to spread mainly from person-to-person contact through respiratory droplets produced when an infected person coughs or sneezes."
+            },
+            "Slide2": {
+               "1": "TAKE STEPS TO",
+               "2": "PROTECT YOURSELF",
+               "3": "Frequently Wash your hands with soap and water for at least 20 seconds. Always Carry a hand sanitizer that contains at least 60% alcohol. Avoid touching your eyes, nose, and mouth with unwashed hands."
+            },
+            "Slide3": {
+               "1": "AVOID",
+               "2": "CLOSE CONTACT",
+               "3": "Avoid close contact with people who are sick. Put distance between yourself and other people if COVID-19/Coronavirus is spreading in your community."
+            },
+            "Slide4": {
+               "1": "TAKE STEPS TO",
+               "2": "PROTECT YOURSELF",
+               "3": "Cover your mouth and nose with a tissue when you cough or sneeze or use the inside of your elbow. Immediately wash your hands with soap and water for at least 20 seconds or clean your hands with a hand sanitizer that contains at least 60% alcohol."
+            },
+            "Slide5": {
+               "1": "CLEAN &",
+               "2": "DISINFECT",
+               "3": "Clean & disinfect frequently touched surfaces daily. This includes tables, doorknobs, light switches, countertops, handles, desks, phones, keyboards, toilets, faucets, and sinks. If surfaces are dirty, clean them: Use detergent or soap and water prior to disinfection."
+            },
+            "buttonNext" : "Next",
+            "buttonClose" : "Close",
+            "dontShowText" : "Don't Show Again"
+        },
+        "Rates": {
+            "1": "Infection Rates",
+            "2": "Recovery Rate",
+            "3": "Death Rate",
+            "4": "Critical Rate",
+            "5": "Mild Cases"
+        },
+        "Other": {
+            "1": "Nations Affected",
+            "2": "Outbreak Started",
+            "3": "Days",
+            "4": "Hours",
+            "5": "Mins",
+            "6": "Secs",
+            "7": "Proudly Open Source",
+            "8": "Buy me a Coffee",
+            "9": "Share with your friends, family or coworkers.",
+            "10": "Keep them up to date with the coronavirus outbreak.",
+            "11": "Contact Me",
+            "12": "Crafted with",
+            "13": "by",
+            "14": "Active",
+            "15": "Recovered",
+            "16": "Deaths",
+            "17": "Critical",
+            "18": "Statistics",
+            "19": "Install App",
+            "20": "Select Language"
+        }
+    }
+}
