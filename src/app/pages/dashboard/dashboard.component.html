@@ -199,10 +199,10 @@
                   </ng-template>
                 </div>
                 <h5 class="infectedCountryName mt-0 mb-1">{{country.country}}</h5>
-                <p class="infectedCountryDetails font-weight-bold"><span class="text-blue">{{country.cases}}
-                  {{ 'Home.AffectedCountries.10' | translate }}</span> & <span class="text-danger">{{country.deaths}} {{ 'Home.AffectedCountries.11' | translate }}</span></p>
-                <p class="infectedCountryCases text-blue">+{{country.todayCases}} {{ 'Home.AffectedCountries.10' | translate }}</p>
-                <p class="infectedCountryDeaths text-danger">+{{country.todayDeaths}} {{ 'Home.AffectedCountries.11' | translate }}</p>
+                <p class="infectedCountryDetails font-weight-bold"><span class="text-blue">{{country.cases | number}}
+                  {{ 'Home.AffectedCountries.10' | translate }}</span> & <span class="text-danger">{{country.deaths | number}} {{ 'Home.AffectedCountries.11' | translate }}</span></p>
+                <p class="infectedCountryCases text-blue">+{{country.todayCases | number}} {{ 'Home.AffectedCountries.10' | translate }}</p>
+                <p class="infectedCountryDeaths text-danger">+{{country.todayDeaths | number}} {{ 'Home.AffectedCountries.11' | translate }}</p>
               </a>
             </div>
           </perfect-scrollbar>
