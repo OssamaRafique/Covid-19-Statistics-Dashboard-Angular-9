@@ -1,0 +1,110 @@
+{
+    "Home" : {
+        "AffectedCountries": {
+            "1": "Betroffene Nationen",
+            "2": "Heutige Statistiken",
+            "3": "Suche",
+            "4": "Sortieren nach",
+            "5": "Fälle Gesamt",
+            "6": "Fälle Heute",
+            "7": "Tode Gesamt",
+            "8": "Tode Heute",
+            "9": "Genesung Gesamt",
+            "10": "Fälle",
+            "11": "Tode"
+        },
+        "WorldMap": {
+            "1": "Weltweite Infektionen",
+            "2": "Wie man verbeugt?"
+        },
+        "InfectionCountries":{
+            "1": "Infektionsverteilung nach Ländern"
+        }
+    },
+    "Country" : {
+        "InfectionCountries": {
+            "1": "Fallverteilung"
+        }
+
+    },
+    "Shared": {
+        "TopCards" : {
+            "1": "Fälle",
+            "2": "Infektionen",
+            "3": "Tode",
+            "4": "Genesungen",
+            "5": "Kritisch",
+            "6": "heute",
+            "7": "pro million",
+            "8": "aktive"
+        },
+        "RateDistribution": {
+            "1": "Verteilung"
+        },
+        "InfectionsHistory":{
+            "1": "Infektions Historie",
+            "2": "Logarithmische Skala"
+        },
+        "HowToPrevent": {
+            "Slide1": {
+               "1": "LERNE WIE ES SICH",
+               "2": "Ausbreitet",
+               "3": "Momentan gibt es keine Impfung gegen",
+               "4": "COVID-19",
+               "5": "Es wird angenommen, dass sich das Virus hauptsächlich von Person zu Person durch Atemtröpfchen ausbreitet, die entstehen, wenn eine infizierte Person hustet oder niest."
+            },
+            "Slide2": {
+               "1": "UNTERNEHME ETWAS UM DICH",
+               "2": "SELBST ZU SCHÜTZEN",
+               "3": "Waschen Sie Ihre Hände häufig, mindestens 20 Sekunden lang, mit Wasser und Seife. Nutzen Sie immer ein Handedesinfektionsmittel, das mindestens 60% Alkohol enthält. Berühren Sie Augen, Nase und Mund nicht mit ungewaschenen Händen."
+            },
+            "Slide3": {
+               "1": "VERMEIDE",
+               "2": "ENGEN KONTAKT",
+               "3": "Vermeiden Sie engen Kontakt mit kranken Menschen. Stellen Sie Abstand zwischen sich und anderen Personen her, wenn sich COVID-19 / Coronavirus in Ihrer Umgebung verbreitet."
+            },
+            "Slide4": {
+               "1": "UNTERNEHME ETWAS UM DICH",
+               "2": "SELBST ZU SCHÜTZEN",
+               "3": "Bedecken Sie Mund und Nase mit einem Papiertaschentuch, wenn Sie husten oder niesen. Oder benutzen Sie die Innenseite Ihres Ellbogens. Waschen Sie Ihre Hände sofort mindestens 20 Sekunden lang mit Wasser und Seife oder reinigen Sie Ihre Hände mit einem Handedesinfektionsmittel, das mindestens 60% Alkohol enthält."
+            },
+            "Slide5": {
+               "1": "REINIGE &",
+               "2": "DESINFIZIERE",
+               "3": "Reinigen und desinfizieren Sie häufig berührte Oberflächen täglich. Dazu gehören Tische, Türklinken, Lichtschalter, Arbeitsplatten, Griffe, Schreibtische, Telefone, Tastaturen, Toiletten, Wasserhähne und Waschbecken. Wenn die Oberflächen verschmutzt sind, reinigen Sie sie: Verwenden Sie vor der Desinfektion Reinigungsmittel oder Seife und Wasser."
+            },
+            "buttonNext" : "Weiter",
+            "buttonClose" : "Schließen",
+            "dontShowText" : "Nicht mehr anzeigen"
+        },
+        "Rates": {
+            "1": "Infektionsrate",
+            "2": "Genesungsrate",
+            "3": "Todesrate",
+            "4": "Kritische Fälle",
+            "5": "Milde Fälle"
+        },
+        "Other": {
+            "1": "Betroffene Nationen",
+            "2": "Begin des Ausbruchs",
+            "3": "Tage",
+            "4": "Stunden",
+            "5": "Min.",
+            "6": "Sek.",
+            "7": "Proudly Open Source",
+            "8": "Buy me a Coffee",
+            "9": "Teile mit Freunden, Familie oder Arbeitskollegen.",
+            "10": "Halte sie über den Coronavirus Ausbruch auf den Laufenden.",
+            "11": "Kontaktiere mich",
+            "12": "Erstellt mit",
+            "13": "von",
+            "14": "Aktiv",
+            "15": "Genesen",
+            "16": "Tode",
+            "17": "Kritisch",
+            "18": "Statistiken",
+            "19": "Installiere App",
+            "20": "Wähle Sprache"
+        }
+    }
+}

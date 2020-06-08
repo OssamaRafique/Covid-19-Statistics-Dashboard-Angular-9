@@ -1,0 +1,110 @@
+{
+    "Home": {
+        "AffectedCountries": {
+            "1": "Etkilenen Milletler",
+            "2": "Bugünün İstatistikleri",
+            "3": "Ara",
+            "4": "Göre Sırala",
+            "5": "Toplam Vaka",
+            "6": "Toplam Vaka",
+            "7": "Toplam Ölüm",
+            "8": "Toplam Ölüm",
+            "9": "Toplam İyileşme",
+            "10": "Vakalar",
+            "11": "Ölümler"
+        },
+        "WorldMap": {
+            "1": "Dünya Çapında Enfeksiyonlar",
+            "2": "Nasıl önlenir?"
+        },
+        "InfectionCountries": {
+            "1": "Ülkelere Göre Enfeksiyon Dağılımı"
+        }
+    },
+    "Country": {
+        "InfectionCountries": {
+            "1": "Vaka Dağıtımı"
+        }
+
+    },
+    "Shared": {
+        "TopCards": {
+            "1": "Vakalar",
+            "2": "Enfeksiyonlar",
+            "3": "Ölümler",
+            "4": "İyileşmeler",
+            "5": "Kritik",
+            "6": "bugün",
+            "7": "milyonda",
+            "8": "kalan"
+        },
+        "RateDistribution": {
+            "1": "Oran Dağılımı"
+        },
+        "InfectionsHistory": {
+            "1": "Enfeksiyonların Geçmişi",
+            "2": "Logaritmik Ölçeği Etkinleştir"
+        },
+        "HowToPrevent": {
+            "Slide1": {
+                "1": "NASIL BİLDİĞİNİZ",
+                "2": "Yayılma",
+                "3": "Şu anda önlenecek bir aşı yok",
+                "4": "Kovid-19",
+                "5": "Virüsün, enfekte bir kişi öksürdüğünde veya hapşırdığında üretilen solunum damlacıkları yoluyla esas olarak kişiden kişiye temastan yayıldığı düşünülmektedir."
+            },
+            "Slide2": {
+                "1": "ADIMLARA GİRİN",
+                "2": "KENDİNİ KORU",
+                "3": "Ellerinizi en az 20 saniye sabun ve suyla yıkayın. Her zaman en az% 60 alkol içeren bir el dezenfektanı taşıyın. Gözlerinize, burnunuza ve ağzınıza yıkanmamış ellerle dokunmaktan kaçının."
+            },
+            "Slide3": {
+                "1": "ÖNLEMEK",
+                "2": "YAKIN TEMAS",
+                "3": "Hasta olan insanlarla yakın temastan kaçının. Toplumunuzda COVID-19 / Coronavirus yayılıyorsa kendinizle diğer insanlar arasında mesafe bırakın."
+            },
+            "Slide4": {
+                "1": "ADIMLARA GİRİN",
+                "2": "KENDİNİ KORU",
+                "3": "Öksürürken, hapşırırken veya dirseğinizin iç kısmını kullanırken ağzınızı ve burnunuzu bir mendille örtün. Ellerinizi en az 20 saniye boyunca sabun ve suyla yıkayın veya en az% 60 alkol içeren bir el dezenfektanı ile temizleyin."
+            },
+            "Slide5": {
+                "1": "TEMİZ &",
+                "2": "Dezenfekte Etmek",
+                "3": "Sık dokunduğu yüzeyleri günlük olarak temizleyin ve dezenfekte edin. Buna masalar, kapı kolları, ışık anahtarları, tezgahlar, kulplar, masalar, telefonlar, klavyeler, tuvaletler, musluklar ve lavabolar dahildir. Yüzeyler kirliyse temizleyin: Dezenfeksiyondan önce deterjan veya sabun ve su kullanın."
+            },
+            "buttonNext": "Sonraki",
+            "buttonClose": "Kapat",
+            "dontShowText": "Bir Daha Gösterme"
+        },
+        "Rates": {
+            "1": "Enfeksiyon Oranları",
+            "2": "İyileşme Oranı",
+            "3": "Ölüm oranı",
+            "4": "Kritik oran",
+            "5": "Hafif Kılıflar"
+        },
+        "Other": {
+            "1": "Etkilenen Milletler",
+            "2": "Salgın Başladı",
+            "3": "Günler",
+            "4": "Saatler",
+            "5": "Dakikalar",
+            "6": "Saniyeler",
+            "7": "Gururla Açık Kaynak",
+            "8": "Bana bir kahve al",
+            "9": "Arkadaşlarınızla, ailenizle veya iş arkadaşlarınızla paylaşın.",
+            "10": "Koronavirüs salgını ile onları güncel tutun.",
+            "11": "Bana ulaşın",
+            "12": "İle hazırlanmış",
+            "13": "tarafından",
+            "14": "Aktif",
+            "15": "İyileşen",
+            "16": "Ölüm",
+            "17": "Kritik",
+            "18": "İstatistik",
+            "19": "Uygulamayı yükle",
+            "20": "Dil Seçin"
+        }
+    }
+}
