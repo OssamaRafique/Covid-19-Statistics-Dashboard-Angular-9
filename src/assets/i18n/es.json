@@ -1,0 +1,110 @@
+{
+    "Home" : {
+        "AffectedCountries": {
+            "1": "Naciones afectadas",
+            "2": "Estadísticas de hoy",
+            "3": "Buscar",
+            "4": "Ordenar por",
+            "5": "Casos totales",
+            "6": "Casos de hoy",
+            "7": "Muertes totales",
+            "8": "Hoy en día las muertes",
+            "9": "Recuperaciones totales",
+            "10": "Casos",
+            "11": "Muertes"
+        },
+        "WorldMap": {
+            "1": "Infecciones mundiales",
+            "2": "¿Cómo prevenir?"
+        },
+        "InfectionCountries":{
+            "1": "Distribución de infecciones por países"
+        }
+    },
+    "Country" : {
+        "InfectionCountries": {
+            "1": "Distribución de casos"
+        }
+
+    },
+    "Shared": {
+        "TopCards" : {
+            "1": "Casos",
+            "2": "Infecciones",
+            "3": "Muertes",
+            "4": "Recuperaciones",
+            "5": "Crítico",
+            "6": "hoy",
+            "7": "por millón",
+            "8": "restante"
+        },
+        "RateDistribution": {
+            "1": "Distribución de tarifas"
+        },
+        "InfectionsHistory":{
+            "1": "Historial de infecciones",
+            "2": "Habilitar escala logarítmica"
+        },
+        "HowToPrevent": {
+            "Slide1": {
+                "1": "SABER CÓMO",
+                "2": "diferenciales",
+                "3": "Actualmente no hay ninguna vacuna para prevenir",
+                "4": "COVID-19",
+                "5": "Se cree que el virus se propaga principalmente por contacto de persona a persona a través de gotitas respiratorias producidas cuando una persona infectada tose o estornuda."
+            },
+            "Slide2": {
+                "1": "TOMA PASOS PARA",
+               "2": "Protéjase",
+               "3": "Lávese las manos con frecuencia con agua y jabón durante al menos 20 segundos. Lleve siempre un desinfectante para manos que contenga al menos 60% de alcohol. Evite tocarse los ojos, la nariz y la boca con las manos sin lavar."
+            },
+            "Slide3": {
+                "1": "EVITAR",
+                "2": "CERRAR CONTACTO",
+                "3": "Evite el contacto cercano con personas que están enfermas. Coloque distancia entre usted y otras personas si COVID-19 / Coronavirus se está propagando en su comunidad."
+            },
+            "Slide4": {
+                "1": "TOMA PASOS PARA",
+               "2": "Protéjase",
+               "3": "Cúbrase la boca y la nariz con un pañuelo de papel cuando tosa o estornude o use la parte interior del codo. Lávese las manos inmediatamente con agua y jabón durante al menos 20 segundos o lávese las manos con un desinfectante para manos que contenga al menos 60% de alcohol."
+            },
+            "Slide5": {
+                "1": "LIMPIAR &",
+                "2": "DESINFECTAR",
+                "3": "Limpie y desinfecte las superficies que se tocan con frecuencia a diario. Esto incluye mesas, pomos de las puertas, interruptores de luz, encimeras, manijas, escritorios, teléfonos, teclados, inodoros, grifos y lavabos. Si las superficies están sucias, límpielas: use detergente o agua y jabón antes de la desinfección."
+            },
+            "buttonNext": "Siguiente",
+            "buttonClose": "Cerrar",
+            "dontShowText": "No mostrar de nuevo"
+        },
+        "Rates": {
+            "1": "Tasas de infección",
+            "2": "Tasa de recuperación",
+            "3": "Tasa de mortalidad",
+            "4": "Tasa crítica",
+            "5": "Casos leves"
+        },
+        "Other": {
+            "1": "Naciones afectadas",
+            "2": "Inicio del brote",
+            "3": "días",
+            "4": "horas",
+            "5": "minutos",
+            "6": "Secs",
+            "7": "Orgullosamente Open Source",
+            "8": "Cómprame un café",
+            "9": "Comparte con tus amigos, familiares o compañeros de trabajo",
+            "10": "Manténgalos al día con el brote de coronavirus",
+            "11": "Contáctame",
+            "12": "Hecho a mano con",
+            "13": "por",
+            "14": "Activo",
+            "15": "Recuperado",
+            "16": "Muertes",
+            "17": "Crítico",
+            "18": "Estadísticas",
+            "19": "Instalar aplicación",
+            "20": "Seleccionar idioma"
+        }
+    }
+}
