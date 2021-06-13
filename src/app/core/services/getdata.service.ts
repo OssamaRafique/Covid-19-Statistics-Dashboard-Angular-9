@@ -11,7 +11,7 @@ HttpClient
 export class GetdataService {
 
   constructor(private _http: HttpClient) { }
-  private host = "https://coronastatistics.herokuapp.com/"
+  private host = "https://coronastatistics.herokuapp.com"
 
   getAll(type): Observable<Country>{
     return this._http.get<Country>(`${this.host}/countries?sort=${type}`).pipe(
