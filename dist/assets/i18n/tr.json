@@ -77,6 +77,11 @@
             "buttonClose": "Kapat",
             "dontShowText": "Bir Daha Gösterme"
         },
+        "DemoNotice": {
+            "1": "Demo modu —",
+            "2": "bu panodaki rakamlar rastgele üretilmiş örnek verilerdir, gerçek COVID-19 istatistikleri değildir. Bu proje artık bakımlı değildir; arkasındaki API kapatılana kadar canlı veri gösteriyordu.",
+            "3": "Projeyi GitHub'da görüntüle"
+        },
         "Rates": {
             "1": "Enfeksiyon Oranları",
             "2": "İyileşme Oranı",

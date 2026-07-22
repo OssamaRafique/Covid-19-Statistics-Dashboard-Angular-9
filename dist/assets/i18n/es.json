@@ -77,6 +77,11 @@
             "buttonClose": "Cerrar",
             "dontShowText": "No mostrar de nuevo"
         },
+        "DemoNotice": {
+            "1": "Modo demostración —",
+            "2": "las cifras de este panel son datos de muestra generados aleatoriamente, no estadísticas reales de COVID-19. Este proyecto ya no recibe mantenimiento; mostró datos en vivo hasta que se retiró la API en la que se basaba.",
+            "3": "Ver el proyecto en GitHub"
+        },
         "Rates": {
             "1": "Tasas de infección",
             "2": "Tasa de recuperación",
