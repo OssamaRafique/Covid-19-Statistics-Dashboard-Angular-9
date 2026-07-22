@@ -1,0 +1,26 @@
+.demo-notice{
+  background-color: #3a3529;
+  border: 1px solid #f9c851;
+  border-radius: 4px;
+  color: #e6d9b8;
+  padding: 12px 16px;
+  // .wrapper only pads 60px while #topnav is absolutely positioned and 70px tall, so the top of
+  // the notice would sit underneath it without this extra margin.
+  margin: 20px 12px 16px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.demo-notice strong{
+  color: #f9c851;
+  margin-right: 4px;
+}
+.demo-notice-icon{
+  color: #f9c851;
+  margin-right: 6px;
+}
+.demo-notice a{
+  color: #21AFDD;
+  margin-left: 6px;
+  white-space: nowrap;
+}

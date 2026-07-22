@@ -77,6 +77,11 @@
             "buttonClose" : "Schließen",
             "dontShowText" : "Nicht mehr anzeigen"
         },
+        "DemoNotice": {
+            "1": "Demomodus —",
+            "2": "die Zahlen auf diesem Dashboard sind zufällig erzeugte Beispieldaten, keine echten COVID-19-Statistiken. Dieses Projekt wird nicht mehr gepflegt; es zeigte Live-Daten, bis die zugrunde liegende API abgeschaltet wurde.",
+            "3": "Projekt auf GitHub ansehen"
+        },
         "Rates": {
             "1": "Infektionsrate",
             "2": "Genesungsrate",

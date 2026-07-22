@@ -6,6 +6,14 @@
 <!-- End Navigation Bar-->
 
 <div class="wrapper">
+    <!-- Demo data notice. Lives inside .wrapper because #topnav is absolutely positioned and
+         would cover anything placed above it. -->
+    <div class="demo-notice" *ngIf="showDemoNotice">
+        <i class="fas fa-exclamation-triangle demo-notice-icon"></i>
+        <strong>{{ 'Shared.DemoNotice.1' | translate }}</strong>
+        <span>{{ 'Shared.DemoNotice.2' | translate }}</span>
+        <a href="https://github.com/OssamaRafique/Covid-19-Statistics-Dashboard-Angular-9" target="_blank" rel="noopener">{{ 'Shared.DemoNotice.3' | translate }}</a>
+    </div>
     <router-outlet></router-outlet>
 </div>
 

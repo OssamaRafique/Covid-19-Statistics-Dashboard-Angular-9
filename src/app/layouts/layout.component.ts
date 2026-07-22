@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-layout',
@@ -8,6 +9,9 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 export class LayoutComponent implements OnInit, AfterViewInit {
 
   showMobileMenu = false;
+
+  // Hidden automatically for anyone running against a real API.
+  showDemoNotice = environment.useDummyData;
 
   constructor() { }
 

@@ -45,6 +45,11 @@
             "1": "Historique des infections",
             "2": "Activer l'échelle logarithmique"
         },
+        "DemoNotice": {
+            "1": "Mode démonstration —",
+            "2": "les chiffres de ce tableau de bord sont des données d'exemple générées aléatoirement, et non de véritables statistiques COVID-19. Ce projet n'est plus maintenu ; il affichait des données en direct jusqu'à la fermeture de l'API sur laquelle il reposait.",
+            "3": "Voir le projet sur GitHub"
+        },
         "Rates": {
             "1": "Taux d'infection",
             "2": "Taux de récupération",

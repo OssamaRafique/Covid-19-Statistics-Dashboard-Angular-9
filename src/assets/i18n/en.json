@@ -77,6 +77,11 @@
             "buttonClose" : "Close",
             "dontShowText" : "Don't Show Again"
         },
+        "DemoNotice": {
+            "1": "Demo mode —",
+            "2": "the figures on this dashboard are randomly generated sample data, not real COVID-19 statistics. This project is no longer maintained; it showed live data until the API behind it was retired.",
+            "3": "View the project on GitHub"
+        },
         "Rates": {
             "1": "Infection Rates",
             "2": "Recovery Rate",
